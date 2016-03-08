@@ -31,13 +31,14 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	                              float progress, KinectWrapper.NuiSkeletonPositionIndex joint, Vector3 screenPos)
 	{
 		//GestureInfo.guiText.text = string.Format("{0} Progress: {1:F1}%", gesture, (progress * 100));
-		if ((gesture == KinectGestures.Gestures.ZoomIn) && progress > 0.25f && Camera.main.transform.localPosition.z <= -nearMax) {
-			Camera.main.transform.Translate(new Vector3 (0, 0, 0.1f));
-			Debug.Log("ZoomIn");
-		}
-		else if ((gesture == KinectGestures.Gestures.ZoomOut) && progress > 0.25f && Camera.main.transform.localPosition.z >= -farMax) {
-			Camera.main.transform.Translate(new Vector3 (0, 0, -0.1f));
-			Debug.Log("ZoomOut");
+		if ((gesture == KinectGestures.Gestures.ZoomIn) /*&& progress > 0.25f*/ && Camera.main.transform.localPosition.z <= -nearMax) {
+			Camera.main.transform.Translate (new Vector3 (0, 0, progress * 0.2f));
+			Debug.Log ("ZoomIn");
+		} else if ((gesture == KinectGestures.Gestures.ZoomOut) /*&& progress > 0.25f*/ && Camera.main.transform.localPosition.z >= -farMax) {
+			Camera.main.transform.Translate (new Vector3 (0, 0, progress * -0.2f));
+			Debug.Log ("ZoomOut");
+		} else if ((gesture == KinectGestures.Gestures.Grab) && progress == 1f) {
+			Debug.Log("Grab");
 		}
 	}
 
