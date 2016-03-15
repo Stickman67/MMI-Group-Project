@@ -4,14 +4,12 @@ using System;
 
 public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListenerInterface
 {
-	// GUI Text to display the gesture messages.
-	public GUIText GestureInfo;
-	
-	// private bool to track if progress message has been displayed
-	private bool progressDisplayed;
-
 	public float nearMax;
 	public float farMax;
+	public bool grabbing;
+	public Vector2 grabVector;
+	public Vector2 previousGrabVector;
+	public GameObject Cursor;
 	
 	public void UserDetected(uint userId, int userIndex)
 	{
@@ -38,7 +36,12 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 			Camera.main.transform.Translate (new Vector3 (0, 0, progress * -0.2f));
 			Debug.Log ("ZoomOut");
 		} else if ((gesture == KinectGestures.Gestures.Grab) && progress == 1f) {
-			Debug.Log("Grab");
+			grabVector = new Vector2 (Cursor.transform.position.x - previousGrabVector.x, Cursor.transform.position.y - previousGrabVector.y); 
+			previousGrabVector = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
+			grabbing = true;
+			Debug.Log ("Grab");
+		} else {
+			grabbing = false;
 		}
 	}
 

@@ -197,7 +197,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 130739810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -50}
+  m_LocalPosition: {x: .400000006, y: -.00700000022, z: -50.0999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -292,9 +292,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b9637035d55784cbbe08ec594f34d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GestureInfo: {fileID: 0}
   nearMax: 21
   farMax: 50
+  grabbing: 0
+  grabVector: {x: 0, y: 0}
+  previousGrabVector: {x: 0, y: 0}
+  Cursor: {fileID: 1989047835}
 --- !u!114 &595383272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +401,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595383270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -50}
+  m_LocalPosition: {x: .400000006, y: 0, z: -50.0999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,6 +472,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1537035268}
+  - 114: {fileID: 1537035266}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -476,6 +480,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1537035266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537035265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8491916ba1226e94daac5929088963c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 595383270}
 --- !u!4 &1537035268
 Transform:
   m_ObjectHideFlags: 0
