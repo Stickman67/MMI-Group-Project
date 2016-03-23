@@ -8,7 +8,7 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	public float farMax;
 	public bool grabbing;
 	public Vector2 grabVector;
-	public Vector2 previousGrabVector;
+	private Vector2 previousGrabVector;
 	public GameObject Cursor;
 	
 	public void UserDetected(uint userId, int userIndex)
