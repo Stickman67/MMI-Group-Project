@@ -1,0 +1,5 @@
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\bin\x64\Debug\RecoServeur.exe
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\bin\x64\Debug\RecoServeur.pdb
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\obj\x64\Debug\RecoServeur.csprojResolveAssemblyReference.cache
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\obj\x64\Debug\RecoServeur.exe
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\obj\x64\Debug\RecoServeur.pdb
