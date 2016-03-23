@@ -1,0 +1,31 @@
+# comment
+#E Stop
+#I 127.0.0.1
+#P 26000
+#V 70
+place
+create
+marker
+delete
+remove
+all
+go to
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+red
+green
+blue
+orange
+yellow
+purple
+pink
+black
+white
