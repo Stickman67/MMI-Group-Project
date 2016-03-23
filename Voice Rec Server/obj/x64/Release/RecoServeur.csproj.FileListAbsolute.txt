@@ -1,0 +1,10 @@
+C:\Users\PCOFME\Desktop\Unity Tempo\RecoCSharp\RecoServeur\bin\x64\Release\RecoServeur.exe
+C:\Users\PCOFME\Desktop\Unity Tempo\RecoCSharp\RecoServeur\bin\x64\Release\RecoServeur.pdb
+C:\Users\PCOFME\Desktop\Unity Tempo\RecoCSharp\RecoServeur\obj\x64\Release\ResolveAssemblyReference.cache
+C:\Users\PCOFME\Desktop\Unity Tempo\RecoCSharp\RecoServeur\obj\x64\Release\RecoServeur.exe
+C:\Users\PCOFME\Desktop\Unity Tempo\RecoCSharp\RecoServeur\obj\x64\Release\RecoServeur.pdb
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\bin\x64\Release\RecoServeur.exe
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\bin\x64\Release\RecoServeur.pdb
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\obj\x64\Release\RecoServeur.exe
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\obj\x64\Release\RecoServeur.pdb
+C:\Users\p4023688\Documents\GitHub\MMI-Group-Project\Voice Rec Server\obj\x64\Release\RecoServeur.csprojResolveAssemblyReference.cache
