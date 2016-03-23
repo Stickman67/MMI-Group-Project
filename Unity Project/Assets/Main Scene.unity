@@ -238,7 +238,6 @@ MonoBehaviour:
   farMax: 50
   grabbing: 0
   grabVector: {x: 0, y: 0}
-  previousGrabVector: {x: 0, y: 0}
   Cursor: {fileID: 1989047835}
 --- !u!114 &595383272
 MonoBehaviour:
@@ -343,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595383270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .400000006, y: 0, z: -50.0999985}
+  m_LocalPosition: {x: 0, y: 0, z: -50.0999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -388,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   port: 26000
+  marker: {fileID: 0}
 --- !u!1001 &1426762256
 Prefab:
   m_ObjectHideFlags: 0
@@ -431,6 +431,22 @@ Prefab:
       propertyPath: hand
       value: 
       objectReference: {fileID: 595383270}
+    - target: {fileID: 448972, guid: ec6cd91e0c6bcef4d8bd669b3f68bb7e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448972, guid: ec6cd91e0c6bcef4d8bd669b3f68bb7e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448972, guid: ec6cd91e0c6bcef4d8bd669b3f68bb7e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448972, guid: ec6cd91e0c6bcef4d8bd669b3f68bb7e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec6cd91e0c6bcef4d8bd669b3f68bb7e, type: 2}
   m_RootGameObject: {fileID: 1537035265}
@@ -459,7 +475,7 @@ Transform:
   m_PrefabParentObject: {fileID: 448972, guid: ec6cd91e0c6bcef4d8bd669b3f68bb7e, type: 2}
   m_PrefabInternal: {fileID: 1426762256}
   m_GameObject: {fileID: 1431397325}
-  m_LocalRotation: {x: 2.18556941e-08, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

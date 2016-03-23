@@ -17,6 +17,8 @@ public class VoiceRec : MonoBehaviour
 	string strReceiveUDP = "";
 	string LocalIP = String.Empty;
 	string hostname;
+	public GameObject marker;
+	private GameObject instance;
 	
 	public void Start()
 	{
@@ -53,6 +55,11 @@ public class VoiceRec : MonoBehaviour
 				// ***********************************************************************
 				Debug.Log(strReceiveUDP);
 				// ***********************************************************************
+				if (strReceiveUDP == "marker")
+				{
+					instance = (GameObject)Instantiate(marker, new Vector3(0,0,-20), new Quaternion(0,0,0,0));
+					instance.renderer.material.color = new Color(1,0,0);
+				}
 			}
 			catch (Exception err)
 			{
