@@ -17,11 +17,12 @@ public class VoiceRec : MonoBehaviour
 	string strReceiveUDP = "";
 	string LocalIP = String.Empty;
 	string hostname;
-	public GameObject marker;
-	private GameObject instance;
+
+	CommandHandler commandHandler;
 	
 	public void Start()
 	{
+		commandHandler = GetComponent<CommandHandler> ();
 		Application.runInBackground = true;
 		init();
 	}
@@ -54,12 +55,8 @@ public class VoiceRec : MonoBehaviour
 				// Simple Debug. Must be replaced with SendMessage for example.
 				// ***********************************************************************
 				Debug.Log(strReceiveUDP);
+				commandHandler.commandQueue.Enqueue(strReceiveUDP);
 				// ***********************************************************************
-				if (strReceiveUDP == "marker")
-				{
-					instance = (GameObject)Instantiate(marker, new Vector3(0,0,-20), new Quaternion(0,0,0,0));
-					instance.renderer.material.color = new Color(1,0,0);
-				}
 			}
 			catch (Exception err)
 			{

@@ -73,6 +73,7 @@ namespace RecoServeur
 						// skip commentblocks and empty lines..
 						if (line.StartsWith("#") || line == String.Empty) continue;
 					}
+
                     Choices place = new Choices("place", "create", "add");
                     Choices delete = new Choices("delete", "remove");
                     Choices all = new Choices("all", "everything");
