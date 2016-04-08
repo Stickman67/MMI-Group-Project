@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -71,46 +72,43 @@ public class CommandHandler : MonoBehaviour {
 
 				if (cmd.Length == 2)
 				{
-					instance.renderer.material.color = new Color(1, 0, 0);
-					markers.Add(new Marker(earth.transform.rotation, 1, instance));
+					PlaceMarker(instance, Color.red);
 				}
 				else if (cmd.Length == 3)
 				{
 					switch (cmd[1])
 					{
 					case "red":
-						instance.renderer.material.color = new Color(1, 0, 0);
+						PlaceMarker(instance, Color.red);
 						break;
 					case "green":
-						instance.renderer.material.color = new Color(0, 1, 0);
+						PlaceMarker(instance, Color.green);
 						break;
 					case "blue":
-						instance.renderer.material.color = new Color(0, 0, 1);
+						PlaceMarker(instance, Color.blue);
 						break;
 					case "yellow":
-						instance.renderer.material.color = new Color(1, 1, 0);
+						PlaceMarker(instance, Color.yellow);
 						break;
 					case "orange":
-						instance.renderer.material.color = new Color(1, 0.5f, 0);
+						PlaceMarker(instance, new Color(1, 0.5f, 0));
 						break;
 					case "purple":
-						instance.renderer.material.color = new Color(1, 0, 1);
+						PlaceMarker(instance, new Color(1, 0, 1));
 						break;
 					case "pink":
-						instance.renderer.material.color = new Color(1, 0, 0.5f);
+						PlaceMarker(instance, new Color(1, 0, 0.5f));
 						break;
 					case "black":
-						instance.renderer.material.color = new Color(0, 0, 0);
+						PlaceMarker(instance, Color.black);
 						break;
 					case "white":
-						instance.renderer.material.color = new Color(1, 1, 1);
+						PlaceMarker(instance, Color.white);
 						break;
 					default:
-						instance.renderer.material.color = new Color(1, 0, 0);
+						PlaceMarker(instance, Color.red);
 						break;
 					}
-					
-					markers.Add(new Marker(earth.transform.rotation, 1, instance));
 				}
 			}
 			else if (cmd[0] == "delete" || cmd[0] == "remove")
@@ -126,16 +124,16 @@ public class CommandHandler : MonoBehaviour {
 						switch (cmd[2])
 						{
 						case "red":
-							DeleteAll(new Color(1, 0, 0));
+							DeleteAll(Color.red);
 							break;
 						case "green":
-							DeleteAll(new Color(0, 1, 0));
+							DeleteAll(Color.green);
 							break;
 						case "blue":
-							DeleteAll(new Color(0, 0, 1));
+							DeleteAll(Color.blue);
 							break;
 						case "yellow":
-							DeleteAll(new Color(1, 1, 0));
+							DeleteAll(Color.yellow);
 							break;
 						case "orange":
 							DeleteAll(new Color(1, 0.5f, 0));
@@ -147,12 +145,15 @@ public class CommandHandler : MonoBehaviour {
 							DeleteAll(new Color(1, 0, 0.5f));
 							break;
 						case "black":
-							DeleteAll(new Color(0, 0, 0));
+							DeleteAll(Color.black);
 							break;
 						case "white":
-							DeleteAll(new Color(1, 1, 1));
+							DeleteAll(Color.white);
 							break;
 						}
+
+						if (markers.Count != 0)
+							markers.Sort((a, b) => a.id.CompareTo(b.id));
 					}
 				}
 				else
@@ -162,16 +163,16 @@ public class CommandHandler : MonoBehaviour {
 						switch (cmd[1])
 						{
 						case "red":
-							DeleteSpecific(new Color(1, 0, 0));
+							DeleteSpecific(Color.red);
 							break;
 						case "green":
-							DeleteSpecific(new Color(0, 1, 0));
+							DeleteSpecific(Color.green);
 							break;
 						case "blue":
-							DeleteSpecific(new Color(0, 0, 1));
+							DeleteSpecific(Color.blue);
 							break;
 						case "yellow":
-							DeleteSpecific(new Color(1, 1, 0));
+							DeleteSpecific(Color.yellow);
 							break;
 						case "orange":
 							DeleteSpecific(new Color(1, 0.5f, 0));
@@ -183,10 +184,10 @@ public class CommandHandler : MonoBehaviour {
 							DeleteSpecific(new Color(1, 0, 0.5f));
 							break;
 						case "black":
-							DeleteSpecific(new Color(0, 0, 0));
+							DeleteSpecific(Color.black);
 							break;
 						case "white":
-							DeleteSpecific(new Color(1, 1, 1));
+							DeleteSpecific(Color.white);
 							break;
 						case "one":
 							DeleteSpecific(1);
@@ -219,25 +220,28 @@ public class CommandHandler : MonoBehaviour {
 							DeleteSpecific(10);
 							break;
 						}
+						
+						if (markers.Count != 0)
+							markers.Sort((a, b) => a.id.CompareTo(b.id));
 					}
 					else if (cmd.Length == 3)
 					{
 						int id = 1;
-						Color colour = new Color(1, 0, 0);
+						Color colour = Color.red;
 
 						switch (cmd[1])
 						{
 						case "red":
-							colour = new Color(1, 0, 0);
+							colour = Color.red;
 							break;
 						case "green":
-							colour = new Color(0, 1, 0);
+							colour = Color.green;
 							break;
 						case "blue":
-							colour = new Color(0, 0, 1);
+							colour = Color.blue;
 							break;
 						case "yellow":
-							colour = new Color(1, 1, 0);
+							colour = Color.yellow;
 							break;
 						case "orange":
 							colour = new Color(1, 0.5f, 0);
@@ -249,10 +253,10 @@ public class CommandHandler : MonoBehaviour {
 							colour = new Color(1, 0, 0.5f);
 							break;
 						case "black":
-							colour = new Color(0, 0, 0);
+							colour = Color.black;
 							break;
 						case "white":
-							colour = new Color(1, 1, 1);
+							colour = Color.white;
 							break;
 						}
 
@@ -291,6 +295,9 @@ public class CommandHandler : MonoBehaviour {
 						}
 
 						DeleteSpecific(colour, id);
+						
+						if (markers.Count != 0)
+							markers.Sort((a, b) => a.id.CompareTo(b.id));
 					}
 				}
 			}
@@ -301,16 +308,16 @@ public class CommandHandler : MonoBehaviour {
 					switch (cmd[2])
 					{
 					case "red":
-						Goto(new Color(1, 0, 0));
+						Goto(Color.red);
 						break;
 					case "green":
-						Goto(new Color(0, 1, 0));
+						Goto(Color.green);
 						break;
 					case "blue":
-						Goto(new Color(0, 0, 1));
+						Goto(Color.blue);
 						break;
 					case "yellow":
-						Goto(new Color(1, 1, 0));
+						Goto(Color.yellow);
 						break;
 					case "orange":
 						Goto(new Color(1, 0.5f, 0));
@@ -322,10 +329,10 @@ public class CommandHandler : MonoBehaviour {
 						Goto(new Color(1, 0, 0.5f));
 						break;
 					case "black":
-						Goto(new Color(0, 0, 0));
+						Goto(Color.black);
 						break;
 					case "white":
-						Goto(new Color(1, 1, 1));
+						Goto(Color.white);
 						break;
 					case "one":
 						Goto(1);
@@ -367,16 +374,16 @@ public class CommandHandler : MonoBehaviour {
 					switch (cmd[2])
 					{
 					case "red":
-						colour = new Color(1, 0, 0);
+						colour = Color.red;
 						break;
 					case "green":
-						colour = new Color(0, 1, 0);
+						colour = Color.green;
 						break;
 					case "blue":
-						colour = new Color(0, 0, 1);
+						colour = Color.blue;
 						break;
 					case "yellow":
-						colour = new Color(1, 1, 0);
+						colour = Color.yellow;
 						break;
 					case "orange":
 						colour = new Color(1, 0.5f, 0);
@@ -388,10 +395,10 @@ public class CommandHandler : MonoBehaviour {
 						colour = new Color(1, 0, 0.5f);
 						break;
 					case "black":
-						colour = new Color(0, 0, 0);
+						colour = Color.black;
 						break;
 					case "white":
-						colour = new Color(1, 1, 1);
+						colour = Color.white;
 						break;
 					}
 					
@@ -435,6 +442,22 @@ public class CommandHandler : MonoBehaviour {
 		}
 	}
 
+	void PlaceMarker(GameObject instance, Color colour)
+	{
+		instance.renderer.material.color = colour;
+		int id = GetNextInt(colour);
+		if (id < 10)
+		{
+			instance.transform.GetChild(0).GetChild(0).GetComponent<Text> ().text = IntToWord(id);
+			markers.Add(new Marker(earth.transform.rotation, id, instance));
+			markers.Sort((a, b) => a.id.CompareTo(b.id));
+		}
+		else
+		{
+			Debug.Log("No more than 10 markers of one colour can be placed.");
+		}
+	}
+	
 	void DeleteSpecific(Color colour)
 	{
 		List<Marker> results = markers.FindAll(
@@ -508,19 +531,16 @@ public class CommandHandler : MonoBehaviour {
 			if (marker.colour == colour)
 			{
 				Destroy(marker.instance);
-				markers.Remove(marker);
 			}
 		}
+
+		markers.RemoveAll (marker => marker.colour == colour);
 	}
 
 	void Goto(Color colour)
 	{
-		List<Marker> results = markers.FindAll(
-			delegate(Marker obj)
-			{
-				return obj.colour == colour;
-			}
-		);
+		List<Marker> results = markers.FindAll (marker => marker.colour == colour);
+
 		if (results.Count == 1)
 		{
 			earth.transform.rotation = results[0].earthRotation;
@@ -533,12 +553,8 @@ public class CommandHandler : MonoBehaviour {
 	
 	void Goto(int id)
 	{
-		List<Marker> results = markers.FindAll(
-			delegate(Marker obj)
-			{
-				return obj.id == id;
-			}
-		);
+		List<Marker> results = markers.FindAll(marker => marker.id == id);
+
 		if (results.Count == 1)
 		{
 			earth.transform.rotation = results[0].earthRotation;
@@ -551,12 +567,9 @@ public class CommandHandler : MonoBehaviour {
 
 	void Goto(Color colour, int id)
 	{
-		List<Marker> results = markers.FindAll(
-			delegate(Marker obj)
-			{
-				return obj.id == id && obj.colour == colour;
-			}
-		);
+		
+		List<Marker> results = markers.FindAll (marker => marker.id == id && marker.colour == colour);
+
 		if (results.Count == 1)
 		{
 			earth.transform.rotation = results[0].earthRotation;
@@ -564,6 +577,70 @@ public class CommandHandler : MonoBehaviour {
 		else
 		{
 			Debug.Log("No / More than one marker matches that desciption.");
+		}
+	}
+
+	string IntToWord(int n)
+	{
+		switch (n) 
+		{
+		case 1:
+			return "One";
+		case 2:
+			return "Two";
+		case 3:
+			return "Three";
+		case 4:
+			return "Four";
+		case 5:
+			return "Five";
+		case 6:
+			return "Six";
+		case 7:
+			return "Seven";
+		case 8:
+			return "Eight";
+		case 9:
+			return "Nine";
+		case 10:
+			return "Ten";
+		default:
+			return "ERROR";
+		}
+	}
+
+	int GetNextInt(Color colour)
+	{
+		List<Marker> colouredMarkers = new List<Marker>();
+		
+		foreach (Marker marker in markers) {
+			if (marker.colour == colour) {
+				colouredMarkers.Add (marker);
+			}
+		}
+		
+		colouredMarkers.Sort((a, b) => a.id.CompareTo(b.id));
+
+		if (colouredMarkers.Count == 0) {
+			return 1;
+		}
+		else
+		{
+			int counter = 1;
+
+			while (counter < 10)
+			{
+				foreach(Marker marker in colouredMarkers)
+				{
+					if (counter != marker.id)
+					{
+						return counter;
+					}
+
+					counter++;
+				}
+			};
+			return counter;
 		}
 	}
 }
