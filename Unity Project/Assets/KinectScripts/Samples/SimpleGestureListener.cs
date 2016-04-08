@@ -39,10 +39,7 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 			grabVector = new Vector2 (Cursor.transform.position.x - previousCursorPosition.x, Cursor.transform.position.y - previousCursorPosition.y); 
 			previousCursorPosition = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
 			grabbing = true;
-			Debug.Log ("Grab");
 		} else {
-			//grabVector = new Vector2 (Cursor.transform.position.x - previousCursorPosition.x, Cursor.transform.position.y - previousCursorPosition.y); 
-			//previousCursorPosition = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
 			grabbing = false;
 		}
 	}
