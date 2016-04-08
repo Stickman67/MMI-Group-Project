@@ -8,7 +8,7 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	public float farMax;
 	public bool grabbing;
 	public Vector2 grabVector;
-	private Vector2 previousGrabVector;
+	private Vector2 previousCursorPosition;
 	public GameObject Cursor;
 	
 	public void UserDetected(uint userId, int userIndex)
@@ -36,11 +36,13 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 			Camera.main.transform.Translate (new Vector3 (0, 0, progress * -0.2f));
 			Debug.Log ("ZoomOut");
 		} else if ((gesture == KinectGestures.Gestures.Grab) && progress == 1f) {
-			grabVector = new Vector2 (Cursor.transform.position.x - previousGrabVector.x, Cursor.transform.position.y - previousGrabVector.y); 
-			previousGrabVector = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
+			grabVector = new Vector2 (Cursor.transform.position.x - previousCursorPosition.x, Cursor.transform.position.y - previousCursorPosition.y); 
+			previousCursorPosition = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
 			grabbing = true;
 			Debug.Log ("Grab");
 		} else {
+			//grabVector = new Vector2 (Cursor.transform.position.x - previousCursorPosition.x, Cursor.transform.position.y - previousCursorPosition.y); 
+			//previousCursorPosition = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
 			grabbing = false;
 		}
 	}

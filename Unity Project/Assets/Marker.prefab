@@ -12,6 +12,7 @@ GameObject:
   - 135: {fileID: 13526514}
   - 23: {fileID: 2326514}
   m_Layer: 0
+  m_Name: Marker
   m_TagString: Marker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

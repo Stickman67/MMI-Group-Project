@@ -296,7 +296,141 @@ public class CommandHandler : MonoBehaviour {
 			}
 			else if (cmd[0] == "go" && cmd[1] == "to")
 			{
-
+				if (cmd.Length == 3)
+				{
+					switch (cmd[2])
+					{
+					case "red":
+						Goto(new Color(1, 0, 0));
+						break;
+					case "green":
+						Goto(new Color(0, 1, 0));
+						break;
+					case "blue":
+						Goto(new Color(0, 0, 1));
+						break;
+					case "yellow":
+						Goto(new Color(1, 1, 0));
+						break;
+					case "orange":
+						Goto(new Color(1, 0.5f, 0));
+						break;
+					case "purple":
+						Goto(new Color(1, 0, 1));
+						break;
+					case "pink":
+						Goto(new Color(1, 0, 0.5f));
+						break;
+					case "black":
+						Goto(new Color(0, 0, 0));
+						break;
+					case "white":
+						Goto(new Color(1, 1, 1));
+						break;
+					case "one":
+						Goto(1);
+						break;
+					case "two":
+						Goto(2);
+						break;
+					case "three":
+						Goto(3);
+						break;
+					case "four":
+						Goto(4);
+						break;
+					case "five":
+						Goto(5);
+						break;
+					case "six":
+						Goto(6);
+						break;
+					case "seven":
+						Goto(7);
+						break;
+					case "eight":
+						Goto(8);
+						break;
+					case "nine":
+						Goto(9);
+						break;
+					case "ten":
+						Goto(10);
+						break;
+					}
+				}
+				else if (cmd.Length == 4)
+				{
+					int id = 1;
+					Color colour = new Color(1, 0, 0);
+					
+					switch (cmd[2])
+					{
+					case "red":
+						colour = new Color(1, 0, 0);
+						break;
+					case "green":
+						colour = new Color(0, 1, 0);
+						break;
+					case "blue":
+						colour = new Color(0, 0, 1);
+						break;
+					case "yellow":
+						colour = new Color(1, 1, 0);
+						break;
+					case "orange":
+						colour = new Color(1, 0.5f, 0);
+						break;
+					case "purple":
+						colour = new Color(1, 0, 1);
+						break;
+					case "pink":
+						colour = new Color(1, 0, 0.5f);
+						break;
+					case "black":
+						colour = new Color(0, 0, 0);
+						break;
+					case "white":
+						colour = new Color(1, 1, 1);
+						break;
+					}
+					
+					switch (cmd[3])
+					{
+					case "one":
+						id = 1;
+						break;
+					case "two":
+						id = 2;
+						break;
+					case "three":
+						id = 3;
+						break;
+					case "four":
+						id = 4;
+						break;
+					case "five":
+						id = 5;
+						break;
+					case "six":
+						id = 6;
+						break;
+					case "seven":
+						id = 7;
+						break;
+					case "eight":
+						id = 8;
+						break;
+					case "nine":
+						id = 9;
+						break;
+					case "ten":
+						id = 10;
+						break;
+					}
+					
+					Goto(colour, id);
+				}
 			}
 		}
 	}
@@ -376,6 +510,60 @@ public class CommandHandler : MonoBehaviour {
 				Destroy(marker.instance);
 				markers.Remove(marker);
 			}
+		}
+	}
+
+	void Goto(Color colour)
+	{
+		List<Marker> results = markers.FindAll(
+			delegate(Marker obj)
+			{
+				return obj.colour == colour;
+			}
+		);
+		if (results.Count == 1)
+		{
+			earth.transform.rotation = results[0].earthRotation;
+		}
+		else
+		{
+			Debug.Log("No / More than one marker matches that desciption.");
+		}
+	}
+	
+	void Goto(int id)
+	{
+		List<Marker> results = markers.FindAll(
+			delegate(Marker obj)
+			{
+				return obj.id == id;
+			}
+		);
+		if (results.Count == 1)
+		{
+			earth.transform.rotation = results[0].earthRotation;
+		}
+		else
+		{
+			Debug.Log("No / More than one marker matches that desciption.");
+		}
+	}
+
+	void Goto(Color colour, int id)
+	{
+		List<Marker> results = markers.FindAll(
+			delegate(Marker obj)
+			{
+				return obj.id == id && obj.colour == colour;
+			}
+		);
+		if (results.Count == 1)
+		{
+			earth.transform.rotation = results[0].earthRotation;
+		}
+		else
+		{
+			Debug.Log("No / More than one marker matches that desciption.");
 		}
 	}
 }
