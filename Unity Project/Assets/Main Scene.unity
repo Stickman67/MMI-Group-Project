@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95aa30b7c683364088eec7d3607a8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  markerPrefab: {fileID: 0}
+  markerPrefab: {fileID: 126514, guid: bf6cc3f718ba13044b2db2b20aa928e4, type: 2}
   earth: {fileID: 1537035265}
 --- !u!1001 &1426762256
 Prefab:
