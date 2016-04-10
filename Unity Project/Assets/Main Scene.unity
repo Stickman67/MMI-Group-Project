@@ -234,10 +234,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b9637035d55784cbbe08ec594f34d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nearMax: 21
+  nearMax: 25
   farMax: 50
   grabbing: 0
   grabVector: {x: 0, y: 0}
+  waving: 0
   Cursor: {fileID: 1989047835}
 --- !u!114 &595383272
 MonoBehaviour:
@@ -272,7 +273,7 @@ MonoBehaviour:
   Player2Avatars: []
   Player1CalibrationPose: 0
   Player2CalibrationPose: 0
-  Player1Gestures: 08000000090000000c0000000d00000015000000
+  Player1Gestures: 0c0000000f0000000e0000000600000015000000
   Player2Gestures: 
   MinTimeBetweenGestures: .699999988
   GestureListeners:
@@ -342,7 +343,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595383270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -30.4599991}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -551,7 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8491916ba1226e94daac5929088963c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 595383270}
 --- !u!4 &1537035268
 Transform:
   m_ObjectHideFlags: 0

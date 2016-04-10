@@ -52,11 +52,13 @@ public class CommandHandler : MonoBehaviour {
 	public GameObject markerPrefab;
 	public GameObject earth;
 	private List<Marker> markers;
+	private SimpleGestureListener GestureListener;
 
 	// Use this for initialization
 	void Start () {
 		commandQueue = new Queue<string> ();
 		markers = new List<Marker> ();
+		GestureListener = Camera.main.GetComponent<SimpleGestureListener>();
 	}
 	
 	// Update is called once per frame
@@ -111,7 +113,7 @@ public class CommandHandler : MonoBehaviour {
 					}
 				}
 			}
-			else if (cmd[0] == "delete" || cmd[0] == "remove")
+			else if ((cmd[0] == "delete" || cmd[0] == "remove") && GestureListener.waving)
 			{
 				if (cmd[1] == "all" || cmd[1] == "everything")
 				{

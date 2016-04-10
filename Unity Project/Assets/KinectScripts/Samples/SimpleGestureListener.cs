@@ -8,6 +8,7 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	public float farMax;
 	public bool grabbing;
 	public Vector2 grabVector;
+	public bool waving;
 	private Vector2 previousCursorPosition;
 	public GameObject Cursor;
 	
@@ -18,6 +19,9 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 
 		manager.DetectGesture(userId, KinectGestures.Gestures.ZoomIn);
 		manager.DetectGesture(userId, KinectGestures.Gestures.ZoomOut);
+		manager.DetectGesture(userId, KinectGestures.Gestures.Wave);
+		manager.DetectGesture(userId, KinectGestures.Gestures.Grab);
+		manager.DetectGesture(userId, KinectGestures.Gestures.None);
 	}
 	
 	public void UserLost(uint userId, int userIndex)
@@ -31,15 +35,25 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 		//GestureInfo.guiText.text = string.Format("{0} Progress: {1:F1}%", gesture, (progress * 100));
 		if ((gesture == KinectGestures.Gestures.ZoomIn) /*&& progress > 0.25f*/ && Camera.main.transform.localPosition.z <= -nearMax) {
 			Camera.main.transform.Translate (new Vector3 (0, 0, progress * 0.2f));
+			waving = false;
+			grabbing = false;
 			Debug.Log ("ZoomIn");
 		} else if ((gesture == KinectGestures.Gestures.ZoomOut) /*&& progress > 0.25f*/ && Camera.main.transform.localPosition.z >= -farMax) {
 			Camera.main.transform.Translate (new Vector3 (0, 0, progress * -0.2f));
+			waving = false;
+			grabbing = false;
 			Debug.Log ("ZoomOut");
 		} else if ((gesture == KinectGestures.Gestures.Grab) && progress == 1f) {
+			Debug.Log ("Grab");
 			grabVector = new Vector2 (Cursor.transform.position.x - previousCursorPosition.x, Cursor.transform.position.y - previousCursorPosition.y); 
 			previousCursorPosition = new Vector2 (Cursor.transform.position.x, Cursor.transform.position.y);
+			waving = false;
 			grabbing = true;
-		} else {
+		} else if ((gesture == KinectGestures.Gestures.Wave) && progress > 0.5f) {
+			waving = true;
+			grabbing = false;
+		} else if (gesture == KinectGestures.Gestures.None) {
+			waving = false;
 			grabbing = false;
 		}
 	}

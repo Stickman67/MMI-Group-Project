@@ -365,12 +365,7 @@ public class KinectGestures
 		case Gestures.Wave:
 			switch (gestureData.state) {
 			case 0:  // gesture detection - phase 1
-				if (jointsTracked [rightHandIndex] && jointsTracked [rightElbowIndex] &&
-					(jointsPos [rightHandIndex].y - jointsPos [rightElbowIndex].y) > 0.1f &&
-					(jointsPos [rightHandIndex].x - jointsPos [rightElbowIndex].x) > 0.05f) {
-					SetGestureJoint (ref gestureData, timestamp, rightHandIndex, jointsPos [rightHandIndex]);
-					gestureData.progress = 0.3f;
-				} else if (jointsTracked [leftHandIndex] && jointsTracked [leftElbowIndex] &&
+				if (jointsTracked [leftHandIndex] && jointsTracked [leftElbowIndex] &&
 					(jointsPos [leftHandIndex].y - jointsPos [leftElbowIndex].y) > 0.1f &&
 					(jointsPos [leftHandIndex].x - jointsPos [leftElbowIndex].x) < -0.05f) {
 					SetGestureJoint (ref gestureData, timestamp, leftHandIndex, jointsPos [leftHandIndex]);
@@ -1013,7 +1008,7 @@ public class KinectGestures
 					gestureData.progress = 1f;
 				} else {
 					// cancel the gesture
-					//SetGestureCancelled(ref gestureData);
+					SetGestureCancelled(ref gestureData);
 					gestureData.progress = 0f;
 				}
 				break;
