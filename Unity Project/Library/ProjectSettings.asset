@@ -12,7 +12,7 @@ PlayerSettings:
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Earth
+  productName: KinectEarth
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -87,7 +87,7 @@ PlayerSettings:
   APKExpansionFiles: 0
   StripUnusedMeshComponents: 0
   iPhoneSdkVersion: 988
-  iPhoneTargetOSVersion: 16
+  iPhoneTargetOSVersion: 20
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIStatusBarHidden: 1
@@ -117,8 +117,15 @@ PlayerSettings:
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
-  m_BuildTargetBatching: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - m_Icon: {fileID: 0}
+      m_Size: 128
+  m_BuildTargetBatching:
+  - m_BuildTarget: Standalone
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   locationUsageDescription: 
@@ -162,7 +169,8 @@ PlayerSettings:
   psp2PackagedResourcesPath: 
   flashStrippingLevel: 2
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    2: 
   metroPackageName: Earth
   metroPackageLogo: 
   metroPackageLogo140: 

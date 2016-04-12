@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Diagnostics;
-using UnityEditor;
 
 public class StartServer : MonoBehaviour {
 
