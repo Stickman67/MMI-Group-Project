@@ -78,7 +78,7 @@ namespace RecoServeur
                     Choices delete = new Choices("delete", "remove");
                     Choices all = new Choices("all", "everything");
                     Choices number = new Choices("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten");
-                    Choices colour = new Choices("red", "green", "blue", "yellow", "orange", "purple", "pink", "black", "white");
+                    Choices colour = new Choices("red", "green", "blue", "yellow", "orange", "purple", "pink");
 
                     GrammarBuilder place_no_colour = new GrammarBuilder();
                     place_no_colour.Append(place);
@@ -167,7 +167,7 @@ namespace RecoServeur
 				{
 					data = Encoding.ASCII.GetBytes(reception);
 					server.SendTo(data, iep);
-					//Console.WriteLine("Sending : "+reception);
+					Console.WriteLine("Sending : "+reception);
 					reception = "#";
 				}
 				Thread.Sleep(2);

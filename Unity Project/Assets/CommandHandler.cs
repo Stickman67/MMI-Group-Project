@@ -74,23 +74,23 @@ public class CommandHandler : MonoBehaviour {
 
 				if (cmd.Length == 2)
 				{
-					PlaceMarker(instance, Color.red);
+					PlaceMarker(instance, new Color(1, 0, 0));
 				}
 				else if (cmd.Length == 3)
 				{
 					switch (cmd[1])
 					{
 					case "red":
-						PlaceMarker(instance, Color.red);
+						PlaceMarker(instance, new Color(1, 0, 0));
 						break;
 					case "green":
-						PlaceMarker(instance, Color.green);
+						PlaceMarker(instance, new Color(0, 1, 0));
 						break;
 					case "blue":
-						PlaceMarker(instance, Color.blue);
+						PlaceMarker(instance, new Color(0, 0, 1));
 						break;
 					case "yellow":
-						PlaceMarker(instance, Color.yellow);
+						PlaceMarker(instance, new Color(1, 1, 0));
 						break;
 					case "orange":
 						PlaceMarker(instance, new Color(1, 0.5f, 0));
@@ -101,14 +101,8 @@ public class CommandHandler : MonoBehaviour {
 					case "pink":
 						PlaceMarker(instance, new Color(1, 0, 0.5f));
 						break;
-					case "black":
-						PlaceMarker(instance, Color.black);
-						break;
-					case "white":
-						PlaceMarker(instance, Color.white);
-						break;
 					default:
-						PlaceMarker(instance, Color.red);
+						PlaceMarker(instance, new Color(1, 0, 0));
 						break;
 					}
 				}
@@ -126,16 +120,16 @@ public class CommandHandler : MonoBehaviour {
 						switch (cmd[2])
 						{
 						case "red":
-							DeleteAll(Color.red);
+							DeleteAll(new Color(1, 0, 0));
 							break;
 						case "green":
-							DeleteAll(Color.green);
+							DeleteAll(new Color(0, 1, 0));
 							break;
 						case "blue":
-							DeleteAll(Color.blue);
+							DeleteAll(new Color(0, 0, 1));
 							break;
 						case "yellow":
-							DeleteAll(Color.yellow);
+							DeleteAll(new Color(1, 1, 0));
 							break;
 						case "orange":
 							DeleteAll(new Color(1, 0.5f, 0));
@@ -145,12 +139,6 @@ public class CommandHandler : MonoBehaviour {
 							break;
 						case "pink":
 							DeleteAll(new Color(1, 0, 0.5f));
-							break;
-						case "black":
-							DeleteAll(Color.black);
-							break;
-						case "white":
-							DeleteAll(Color.white);
 							break;
 						}
 
@@ -165,16 +153,16 @@ public class CommandHandler : MonoBehaviour {
 						switch (cmd[1])
 						{
 						case "red":
-							DeleteSpecific(Color.red);
+							DeleteSpecific(new Color(1, 0, 0));
 							break;
 						case "green":
-							DeleteSpecific(Color.green);
+							DeleteSpecific(new Color(0, 1, 0));
 							break;
 						case "blue":
-							DeleteSpecific(Color.blue);
+							DeleteSpecific(new Color(0, 0, 1));
 							break;
 						case "yellow":
-							DeleteSpecific(Color.yellow);
+							DeleteSpecific(new Color(1, 1, 0));
 							break;
 						case "orange":
 							DeleteSpecific(new Color(1, 0.5f, 0));
@@ -184,12 +172,6 @@ public class CommandHandler : MonoBehaviour {
 							break;
 						case "pink":
 							DeleteSpecific(new Color(1, 0, 0.5f));
-							break;
-						case "black":
-							DeleteSpecific(Color.black);
-							break;
-						case "white":
-							DeleteSpecific(Color.white);
 							break;
 						case "one":
 							DeleteSpecific(1);
@@ -229,21 +211,21 @@ public class CommandHandler : MonoBehaviour {
 					else if (cmd.Length == 3)
 					{
 						int id = 1;
-						Color colour = Color.red;
+						Color colour = new Color(1, 0, 0);
 
 						switch (cmd[1])
 						{
 						case "red":
-							colour = Color.red;
+							colour = new Color(1, 0, 0);
 							break;
 						case "green":
-							colour = Color.green;
+							colour = new Color(0, 1, 0);
 							break;
 						case "blue":
-							colour = Color.blue;
+							colour = new Color(0, 0, 1);
 							break;
 						case "yellow":
-							colour = Color.yellow;
+							colour = new Color(1, 1, 0);
 							break;
 						case "orange":
 							colour = new Color(1, 0.5f, 0);
@@ -253,12 +235,6 @@ public class CommandHandler : MonoBehaviour {
 							break;
 						case "pink":
 							colour = new Color(1, 0, 0.5f);
-							break;
-						case "black":
-							colour = Color.black;
-							break;
-						case "white":
-							colour = Color.white;
 							break;
 						}
 
@@ -310,16 +286,16 @@ public class CommandHandler : MonoBehaviour {
 					switch (cmd[2])
 					{
 					case "red":
-						Goto(Color.red);
+						Goto(new Color(1, 0, 0));
 						break;
 					case "green":
-						Goto(Color.green);
+						Goto(new Color(0, 1, 0));
 						break;
 					case "blue":
-						Goto(Color.blue);
+						Goto(new Color(0, 0, 1));
 						break;
 					case "yellow":
-						Goto(Color.yellow);
+						Goto(new Color(1, 1, 0));
 						break;
 					case "orange":
 						Goto(new Color(1, 0.5f, 0));
@@ -329,12 +305,6 @@ public class CommandHandler : MonoBehaviour {
 						break;
 					case "pink":
 						Goto(new Color(1, 0, 0.5f));
-						break;
-					case "black":
-						Goto(Color.black);
-						break;
-					case "white":
-						Goto(Color.white);
 						break;
 					case "one":
 						Goto(1);
@@ -376,16 +346,16 @@ public class CommandHandler : MonoBehaviour {
 					switch (cmd[2])
 					{
 					case "red":
-						colour = Color.red;
+						colour = new Color(1, 0, 0);
 						break;
 					case "green":
-						colour = Color.green;
+						colour = new Color(0, 1, 0);
 						break;
 					case "blue":
-						colour = Color.blue;
+						colour = new Color(0, 0, 1);
 						break;
 					case "yellow":
-						colour = Color.yellow;
+						colour = new Color(1, 1, 0);
 						break;
 					case "orange":
 						colour = new Color(1, 0.5f, 0);
@@ -395,12 +365,6 @@ public class CommandHandler : MonoBehaviour {
 						break;
 					case "pink":
 						colour = new Color(1, 0, 0.5f);
-						break;
-					case "black":
-						colour = Color.black;
-						break;
-					case "white":
-						colour = Color.white;
 						break;
 					}
 					
